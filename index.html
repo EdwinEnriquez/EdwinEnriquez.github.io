@@ -28,18 +28,32 @@
 
         .lead-summary { font-size: 1.15rem; margin-bottom: 30px; }
 
-        /* Card Styling (Experience) */
-        .job-card {
+        /* Custom Styling for Accordion/Experience */
+        .accordion-item {
             background-color: var(--gh-bg-card);
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 25px;
-            border-left: 3px solid var(--gh-blue);
+            border: 1px solid #30363d; /* Dark border for separation */
+        }
+        .accordion-button {
+            background-color: var(--gh-bg-card);
+            color: var(--gh-text);
+            font-weight: 600;
+        }
+        .accordion-button:not(.collapsed) {
+            color: var(--gh-blue);
+            background-color: #1f2730; /* Slightly lighter shade when open */
+            box-shadow: none;
+        }
+        .accordion-body {
+            color: var(--gh-text);
         }
 
-        .job-card h4 { color: var(--gh-text); font-weight: 600; margin-bottom: 5px; }
-        .job-card p.text-muted { font-size: 0.9em; margin-bottom: 10px; }
-        .job-card ul { padding-left: 20px; }
+        /* Date Color Change */
+        .job-date {
+            color: #b0c4de !important; /* Light steel blue for date */
+            font-style: italic;
+            font-size: 0.95em;
+            margin-top: 5px;
+        }
 
         /* Skills Badges */
         .badges-grid {
@@ -77,7 +91,7 @@
 
         <div class="section text-start">
             <p class="lead-summary">
-                I am an experienced Software Developer with over **9 years** of expertise in backend and full-stack development. Proficient in designing, deploying, and maintaining scalable solutions using **Python**, modern frameworks, **Cloud Platforms (AWS, GCP, Azure)**, and **CI/CD** tools. Committed to continuous learning and success in leading development teams.
+                I am an experienced Software Developer with over 9 years of expertise in backend and full-stack development. Proficient in designing, deploying, and maintaining scalable solutions using Python, modern frameworks, Cloud Platforms (AWS, GCP, Azure), and CI/CD tools. Committed to continuous learning and success in leading development teams.
             </p>
         </div>
 
@@ -109,43 +123,134 @@
         <div class="section text-start" id="experience">
             <h2 class="mb-4">💼 Professional Experience</h2>
 
-            <div class="job-card">
-                <h4>Software Developer - TATA Consultancy Services</h4>
-                <p class="text-muted">June 2022 – January 2025</p>
-                <ul>
-                    <li>Developed and deployed client solutions using **Python**, React, and cloud services.</li>
-                    <li>Expertly utilized **AWS** services including Lambdas, SNS, SQS, LoadBalancer, and CloudWatch Alarms.</li>
-                    <li>Implemented **Infrastructure as Code** using **Terraform** and managed CI/CD pipelines with Jenkins and GitHub Actions.</li>
-                    <li>Tech Stack: Python, Java, React, AWS, Terraform, PostgreSQL, Jenkins, GitHub Actions.</li>
-                </ul>
-            </div>
+            <div class="accordion" id="experienceAccordion">
 
-            <div class="job-card">
-                <h4>Software Development Engineer - Konfio</h4>
-                <p class="text-muted">Aug 2021 – June 2022</p>
-                <ul>
-                    <li>Enhanced platform integrations and developed solutions using **Python, Flask**, React, and TypeScript.</li>
-                    <li>Worked with C\#, SQL Server, and implemented solutions across **AWS** and **Azure**.</li>
-                    <li>Utilized **Docker** and agile methodology in the development process.</li>
-                </ul>
-            </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Software Developer - TATA Consultancy Services
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#experienceAccordion">
+                        <div class="accordion-body">
+                            <p class="job-date text-muted">June 2022 – January 2025</p>
+                            <ul>
+                                <li>Developing and deploying solutions for different TCS clients using Python, React, and cloud services.</li>
+                                <li>Expertly utilized **AWS** services including Lambdas, SNS, SQS, LoadBalancer, and CloudWatch Alarms.</li>
+                                <li>Implemented **Infrastructure as Code** using **Terraform** and managed CI/CD pipelines with Jenkins and GitHub Actions.</li>
+                                <li>Tech Stack: Python, Java, React, AWS, Terraform, PostgreSQL, Jenkins, GitHub Actions, Docker, MariaDB.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="job-card">
-                <h4>Web Developer (Python Backend) - Grupo Wayssen de México SA de CV</h4>
-                <p class="text-muted">Feb 2021 – Aug 2021</p>
-                <ul>
-                    <li>Built APIs and automation endpoints for Gentera using **Python** and **Flask**.</li>
-                    <li>Development utilized **GCP (Google Cloud Platform)** and required knowledge of Docker and **Kubernetes**.</li>
-                </ul>
-            </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Software Development Engineer - Konfio
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#experienceAccordion">
+                        <div class="accordion-body">
+                            <p class="job-date text-muted">August 2021 – June 2022</p>
+                            <ul>
+                                <li>Enhanced platform integrations and developed diverse solutions.</li>
+                                <li>Tech Stack: Python, Flask, React, TypeScript, C\#, SQL Server, AWS, Azure, and Docker.</li>
+                                <li>Utilized Visual Studio, Visual Studio Code, Git, GitHub Actions (for CI/CD), DBeaver, and agile methodology.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="job-card">
-                <h4>Web Developer - Anzen Solutions</h4>
-                <p class="text-muted">May 2020 – Feb 2021</p>
-                <ul>
-                    <li>Collaborated on backend and frontend projects using **Python, Flask, Angular**, AWS, and SQL databases.</li>
-                    <li>Worked with various technologies including Java (Spring Boot/Security), AWS/Azure, Ubuntu/Fedora, and utilized web scraping tools like Beautiful Soup and Selenium.</li>
-                </ul>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Web Developer - Grupo Wayssen de México SA de CV
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#experienceAccordion">
+                        <div class="accordion-body">
+                            <p class="job-date text-muted">February 2021 – August 2021</p>
+                            <ul>
+                                <li>Worked as a Python Backend Developer, building APIs and automation endpoints for Gentera.</li>
+                                <li>Tech Stack: Python, Flask, GCP (Google Cloud Platform), React, TypeScript, and MySQL.</li>
+                                <li>Utilized Docker, **Kubernetes**, Postman, MySQL WorkBench, and Visual Studio Code.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFour">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            Web Developer - Anzen Solutions
+                        </button>
+                    </h2>
+                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#experienceAccordion">
+                        <div class="accordion-body">
+                            <p class="job-date text-muted">May 2020 – February 2021</p>
+                            <ul>
+                                <li>Collaborated on backend and frontend projects using Python, Flask, Angular, AWS, and SQL databases, always using agile methodologies.</li>
+                                <li>Tech Stack: Python, JavaScript, Java (Spring Boot, Spring Security), over clouds like AWS, Azure.</li>
+                                <li>Tools included MySQL, SQL Server, Mongo, PostgreSQL, Beautiful Soup (web Scrapping), and Selenium.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFive">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                            Main Developer - Grupo CPM International
+                        </button>
+                    </h2>
+                    <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#experienceAccordion">
+                        <div class="accordion-body">
+                            <p class="job-date text-muted">November 2016 – November 2019</p>
+                            <ul>
+                                <li>Delivered diverse IT solutions, including APIs and applications.</li>
+                                <li>Tech Stack: Python, Laravel, MySQL, PostgreSQL, and Linux servers (Ubuntu, Fedora).</li>
+                                <li>Tools used: Terminal, Postman, Visual Studio Code, PyCharm, DBeaver.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingSix">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                            Developer/Sys Admin - Copyleft Solutions Mexico
+                        </button>
+                    </h2>
+                    <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#experienceAccordion">
+                        <div class="accordion-body">
+                            <p class="job-date text-muted">2014 – 2016</p>
+                            <ul>
+                                <li>Maintained and developed websites using PHP (Laravel, Kohana).</li>
+                                <li>Handled server migrations via SSH using Linux OS like Red Hat, Ubuntu, Suse, and Fedora.</li>
+                                <li>Databases used: Mysql, Mongo, PostgreSQL.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingSeven">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                            Practices in Consulting area - Red Hat (Internships)
+                        </button>
+                    </h2>
+                    <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#experienceAccordion">
+                        <div class="accordion-body">
+                            <p class="job-date text-muted">Summer 2012 and 2013</p>
+                            <ul>
+                                <li>Created Bash utilities for server diagnostics and automation in Red Hat environments.</li>
+                                <li>Tools used: Terminal, Bash Script, AWK, C, Cron Jobs, Red Hat OS, SSH.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
 
@@ -157,11 +262,15 @@
                     <ul class="list-unstyled">
                         <li>
                             <strong>Master's Degree in Software Engineering and Computational Systems</strong>
-                            <p class="text-muted mb-1">International University of La Rioja in Mexico (2022 – 2023)</p>
+                            <p class="job-date text-muted">International University of La Rioja in Mexico (2022 – 2023)</p>
                         </li>
                         <li>
                             <strong>Bachelor of Information Technologies</strong>
-                            <p class="text-muted mb-1">Universidad del Mar campus Puerto Escondido, Oaxaca, Mexico (2009-2014)</p>
+                            <p class="job-date text-muted">Universidad del Mar campus Puerto Escondido, Oaxaca, Mexico (2009-2014)</p>
+                        </li>
+                        <li>
+                            <strong>IT technician</strong>
+                            <p class="job-date text-muted">CBTIS 331, Matías Romero Oaxaca, México (2003-2006)</p>
                         </li>
                     </ul>
                 </div>
@@ -170,15 +279,15 @@
                     <ul class="list-unstyled">
                         <li>
                             <strong>Scrum Foundation Professional Certificate (SFPC)</strong>
-                            <p class="text-muted mb-1">CertiProf (May 2020)</p>
+                            <p class="job-date text-muted">CertiProf (May 2020)</p>
                         </li>
                         <li>
                             <strong>Cloud Computing by Google Activate</strong>
-                            <p class="text-muted mb-1">(May 2020)</p>
+                            <p class="job-date text-muted">(May 2020)</p>
                         </li>
                         <li>
                             <strong>Mobile apps Development by Google Activate</strong>
-                            <p class="text-muted mb-1">(Mar 2020)</p>
+                            <p class="job-date text-muted">(Mar 2020)</p>
                         </li>
                     </ul>
                 </div>
